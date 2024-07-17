@@ -49,13 +49,3 @@ Note: The 'Realized Profit' is represented in SOL.
 #### Notes
 - Adjust rate limits (`time.sleep(1)`) according to API usage guidelines to prevent rate limiting issues.
 - Logging is implemented to track errors and activities for debugging purposes.
-
-#### License
-This project is licensed under the MIT License. See `LICENSE` for more details.
-
-#### Author
-This tool is developed and maintained by [Your Name].
-
----
-
-This `README.md` provides an overview, setup instructions, usage details, example output, and licensing information for the **Smart Money Follower** tool. Adjust the content as per your project specifics and requirements.
