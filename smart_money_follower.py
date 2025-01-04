@@ -1,9 +1,8 @@
-import httpx
 import logging
 import time
 from datetime import datetime
 from tabulate import tabulate
-from gmgn import gmgn
+from gmgn.client import gmgn
 
 
 class SmartMoneyFollower:
