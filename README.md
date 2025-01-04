@@ -1,5 +1,10 @@
 ### Smart Money Follower
 
+Smart Money Follower OG Developer: https://github.com/yllvar <br>
+OG Repo: https://github.com/yllvar/Smart_Money_Follower <br><br>
+GMGN.ai API Wrapper OG Developer: https://github.com/1f1n <br>
+OG Repo: https://github.com/1f1n/gmgnai-wrapper
+
 #### Overview
 The **Smart Money Follower** is a Python-based tool designed to analyze and follow top-performing wallets in the cryptocurrency space using the GMGN.ai API. It provides insights into wallet activities, evaluates traded tokens, and presents data in a structured format for analysis.
 
@@ -12,21 +17,37 @@ The **Smart Money Follower** is a Python-based tool designed to analyze and foll
 #### Requirements
 - Python 3.7+
 - Dependencies:
-  - `httpx`
+  - `fake-useragent`
   - `tabulate`
-  - `gmgn` (GMGN.ai API wrapper)
-  - `logging`
+  - `tls_client`
 
-#### Setup
-1. **Installation**:
+## Setup
+#### 1. **Clone Git**
+   
+   ```
+   git clone https://github.com/LetsStartWithPurple/Smart_Money_Follower.git
+   ```
+#### 2. **Start Virtual Environment**
+
+Navigate to the project directory:
+  ```bash
+  cd Smart_Money_Follower
+  ```
+Create Venv
+  ```bash
+  python3 -m venv venv
+  ```
+Start Virtual Environment
+  ```bash
+  source venv/bin/activate
+  ```
+
+#### 4. **Install Requirements**:
    ```bash
-   pip install httpx tabulate gmgn
+   pip install -r requirements.txt
    ```
 
-2. **Configuration**:
-   - Ensure you have valid API credentials for GMGN.ai. Update credentials in the `gmgn` initialization within `SmartMoneyFollower`.
-
-3. **Execution**:
+#### 5. **Execution**:
    ```bash
    python smart_money_follower.py
    ```
