@@ -3,13 +3,18 @@ import time
 from datetime import datetime
 from tabulate import tabulate
 from gmgn.client import gmgn
+import csv
+import os
+from config import config
 
 
 class SmartMoneyFollower:
-    def __init__(self):
+    def __init__(self, export_path, export_format):
         self.gmgn = gmgn()
         self.logger = logging.getLogger("SmartMoneyFollower")
         logging.basicConfig(level=logging.INFO)
+        self.export_path = export_path
+        self.export_format = export_format
 
     def get_top_wallets(self, timeframe="7d", walletTag="smart_degen"):
         """
@@ -124,12 +129,64 @@ class SmartMoneyFollower:
 
                     time.sleep(1)  # Rate limiting
 
-            # Step 4: Print the analysis output
+            # Step 4: Export to file
+            self.export_data(wallet_data)
+
+            # Step 5: Print the analysis output
             self.print_analysis_output(wallet_data)
+
         except Exception as e:
             self.logger.error(f"Error running strategy: {e}")
 
+    def export_data(self, data):
+        """
+        Export the wallet analysis data to the specified format.
+
+        :param data: List of wallet data dictionaries.
+        """
+        file_path = ""
+        if not data:
+            self.logger.warning("No data to export")
+            return
+
+        os.makedirs(self.export_path, exist_ok=True)
+
+        if self.export_format == "csv":
+            file_path = os.path.join(self.export_path, f"wallet_list_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
+            with open(file_path, mode="w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=data[0].keys())
+                writer.writeheader()
+                writer.writerows(data)
+        elif self.export_format == "txt":
+            file_path = os.path.join(self.export_path, f"wallet_list_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
+            with open(file_path, mode="w") as file:
+                for wallet in data:
+                    for key, value in wallet.items():
+                        file.write(f"{key}: {value}\n")
+                    file.write("\n")
+
+        print(f"Data exported to {file_path if file_path else self.export_path}")
 
 if __name__ == "__main__":
-    follower = SmartMoneyFollower()
+    # Load configuration
+    args = config.parse_args()
+    cfg = config.load_config(args.config)
+    final_config = config.merge_config_and_args(cfg, args)
+
+    # Validate configuration
+    if not final_config["path"]:
+        print("Error: Export path is required.")
+        exit(1)
+
+    if final_config["export_format"] not in ["csv", "txt"]:
+        print(f"Error: Unsupported export format '{final_config['export_format']}'")
+        exit(1)
+
+    # Follower instance
+    follower = SmartMoneyFollower(
+        export_path=final_config["path"],
+        export_format=final_config["export_format"]
+    )
+
+    #run
     follower.run_strategy()
