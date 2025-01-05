@@ -20,6 +20,7 @@ The **Smart Money Follower** is a Python-based tool designed to analyze and foll
   - `fake-useragent`
   - `tabulate`
   - `tls_client`
+  - `PyYAML`
 
 ## Setup
 #### 1. **Clone Git**
