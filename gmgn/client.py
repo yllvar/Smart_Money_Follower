@@ -1,4 +1,5 @@
 import random
+import platform
 import tls_client
 from fake_useragent import UserAgent
 
@@ -12,22 +13,34 @@ class gmgn:
         pass
 
     def randomiseRequest(self):
-        self.identifier = random.choice([browser for browser in tls_client.settings.ClientIdentifiers.__args__ if browser.startswith(('chrome', 'safari', 'firefox', 'opera'))])
+        # Randomly choose a valid browser identifier
+        self.identifier = random.choice(
+            [browser for browser in tls_client.settings.ClientIdentifiers.__args__ if
+             browser.startswith(('chrome', 'safari', 'firefox', 'opera'))]
+        )
         self.sendRequest = tls_client.Session(random_tls_extension_order=True, client_identifier=self.identifier)
 
+        # Extract parts of the identifier
         parts = self.identifier.split('_')
         identifier, version, *rest = parts
         other = rest[0] if rest else None
 
-        os = 'windows'
+        # Detect OS dynamically
+        current_os = platform.system().lower()
+        if current_os == 'darwin':  # macOS
+            os_type = 'mac'
+        elif current_os == 'linux':
+            os_type = 'linux'
+        else:
+            os_type = 'windows'
+
+        # Adjust identifier and os_type for specific cases
         if identifier == 'opera':
             identifier = 'chrome'
         elif version == 'ios':
-            os = 'ios'
-        else:
-            os = 'windows'
+            os_type = 'ios'
 
-        self.user_agent = UserAgent(browsers=[identifier], os=[os]).random
+        self.user_agent = UserAgent(browsers=[identifier], os=[os_type]).random
 
         self.headers = {
             'Host': 'gmgn.ai',

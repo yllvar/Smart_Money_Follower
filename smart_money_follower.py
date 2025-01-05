@@ -1,18 +1,19 @@
 import logging
 import time
 from datetime import datetime
+
 from tabulate import tabulate
 from gmgn.client import gmgn
 import csv
 import os
-from config import config
+from config.config import get_final_config, parse_args
 
 
 class SmartMoneyFollower:
-    def __init__(self, export_path, export_format):
+    def __init__(self, export_path, export_format, verbose):
         self.gmgn = gmgn()
         self.logger = logging.getLogger("SmartMoneyFollower")
-        logging.basicConfig(level=logging.INFO)
+        logging.basicConfig(level=logging.INFO if verbose else logging.WARNING)
         self.export_path = export_path
         self.export_format = export_format
 
@@ -168,25 +169,23 @@ class SmartMoneyFollower:
         print(f"Data exported to {file_path if file_path else self.export_path}")
 
 if __name__ == "__main__":
-    # Load configuration
-    args = config.parse_args()
-    cfg = config.load_config(args.config)
-    final_config = config.merge_config_and_args(cfg, args)
+    try:
+        # Parse command-line arguments
+        args = parse_args()
 
-    # Validate configuration
-    if not final_config["path"]:
-        print("Error: Export path is required.")
+        # Get the final configuration
+        final_config = get_final_config(args)
+
+        # Follower instance
+        follower = SmartMoneyFollower(
+            export_path=final_config["path"],
+            export_format=final_config["export_format"],
+            verbose=final_config["verbose"]
+        )
+
+        # Run
+        follower.run_strategy()
+
+    except ValueError as e:
+        print(f"Configuration Error: {e}")
         exit(1)
-
-    if final_config["export_format"] not in ["csv", "txt"]:
-        print(f"Error: Unsupported export format '{final_config['export_format']}'")
-        exit(1)
-
-    # Follower instance
-    follower = SmartMoneyFollower(
-        export_path=final_config["path"],
-        export_format=final_config["export_format"]
-    )
-
-    #run
-    follower.run_strategy()

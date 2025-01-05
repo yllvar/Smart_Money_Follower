@@ -1,0 +1,9 @@
+#### Path to export wallet data
+path: "data"
+
+#### Export settings
+# csv or txt
+export_format: "csv"
+
+#### Verbose Settings
+verbose: False
