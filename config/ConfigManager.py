@@ -115,7 +115,7 @@ def parse_args():
 if __name__ == "__main__":
     # Parse arguments
     args = parse_args()
-    args.config = "config.yaml" # for testing purposes
+    #args.config = "config.yaml" # for testing purposes
 
     # Create ConfigManager instance
     config_manager = ConfigManager(args=args)
