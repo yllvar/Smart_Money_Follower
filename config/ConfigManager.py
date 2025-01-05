@@ -25,10 +25,13 @@ class ConfigManager:
 
     def _merge_config_and_args(self):
         """Merge the config file and command-line arguments, with args taking precedence."""
+        wallet_settings = self._config_data.get("wallet_settings", {})
         return {
             "path": self._args.path if self._args and self._args.path else self._config_data.get("path", "data"),
             "verbose": self._args.verbose if self._args and self._args.verbose else self._config_data.get("verbose", True),
             "export_format": self._args.export_format if self._args and self._args.export_format else self._config_data.get("export_format", "csv"),
+            "timeframe": wallet_settings.get("timeframe", "7d"),
+            "wallet_tag": wallet_settings.get("wallet_tag", "smart_degen")
         }
 
     def validate(self):
@@ -69,6 +72,27 @@ class ConfigManager:
         self._final_config["export_format"] = export_format
 
     @property
+    def timeframe(self):
+        return self._final_config["timeframe"]
+
+    @timeframe.setter
+    def timeframe(self, timeframe):
+        if timeframe not in ["1d", "7d", "30d"]:
+            raise ValueError("Timeframe must be 1d, 7d, 30d")
+        self._final_config["timeframe"] = timeframe
+
+    @property
+    def wallet_tag(self):
+        return self._final_config["wallet_tag"]
+
+    @wallet_tag.setter
+    def wallet_tag(self, wallet_tag):
+        tag_options = ["all", "pump_smart", "smart_degen", "reowned", "snipe_bot"]
+        if wallet_tag not in tag_options:
+            raise ValueError("Wallet Tag must be set to a valid tag")
+        self._final_config["wallet_tag"] = wallet_tag
+
+    @property
     def config(self):
         return self._final_config
 
@@ -103,3 +127,5 @@ if __name__ == "__main__":
     print(f"Path: {config_manager.path}")
     print(f"Verbose: {config_manager.verbose}")
     print(f"Export Format: {config_manager.export_format}")
+    print(f"Timeframe: {config_manager.timeframe}")
+    print(f"Wallet Tag: {config_manager.wallet_tag}")

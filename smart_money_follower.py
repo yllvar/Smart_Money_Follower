@@ -17,16 +17,16 @@ class SmartMoneyFollower:
         self.export_path = self.config.path
         self.export_format = self.config.export_format
 
-    def get_top_wallets(self, timeframe="7d", walletTag="smart_degen"):
+    def get_top_wallets(self, timeframe="7d", wallet_tag="smart_degen"):
         """
         Fetch top performing wallets using the getTrendingWallets endpoint.
 
         :param timeframe: Time period for trending wallets (default "7d").
-        :param walletTag: Tag to filter wallets (default "smart_degen").
+        :param wallet_tag: Tag to filter wallets (default "smart_degen").
         :return: List of top performing wallets.
         """
         try:
-            response = self.gmgn.getTrendingWallets(timeframe, walletTag)
+            response = self.gmgn.getTrendingWallets(timeframe, wallet_tag)
             return response['rank']
         except Exception as e:
             self.logger.error(f"Error fetching top wallets: {e}")
@@ -91,7 +91,7 @@ class SmartMoneyFollower:
         """
         try:
             # Step 1: Get top wallets
-            top_wallets = self.get_top_wallets()
+            top_wallets = self.get_top_wallets(timeframe=self.config.timeframe, wallet_tag=self.config.wallet_tag)
             if not top_wallets:
                 self.logger.warning("No top wallets found.")
                 return
@@ -101,7 +101,7 @@ class SmartMoneyFollower:
             # Step 2: Analyze each wallet's activity
             for wallet in top_wallets:
                 wallet_address = wallet.get('wallet_address')
-                wallet_activity = self.analyze_wallet_activity(wallet_address)
+                wallet_activity = self.analyze_wallet_activity(wallet_address, period=self.config.timeframe)
                 
                 # Log wallet activity data vertically
                 self.logger.info(f"Wallet Activity for {wallet_address}:")
