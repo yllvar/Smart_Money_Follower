@@ -6,16 +6,16 @@ from tabulate import tabulate
 from gmgn.client import gmgn
 import csv
 import os
-from config.config import get_final_config, parse_args
-
+from config.ConfigManager import ConfigManager, parse_args
 
 class SmartMoneyFollower:
-    def __init__(self, export_path, export_format, verbose):
+    def __init__(self, config: ConfigManager):
         self.gmgn = gmgn()
+        self.config = config
         self.logger = logging.getLogger("SmartMoneyFollower")
-        logging.basicConfig(level=logging.INFO if verbose else logging.WARNING)
-        self.export_path = export_path
-        self.export_format = export_format
+        logging.basicConfig(level=logging.INFO if self.config.verbose else logging.WARNING)
+        self.export_path = self.config.path
+        self.export_format = self.config.export_format
 
     def get_top_wallets(self, timeframe="7d", walletTag="smart_degen"):
         """
@@ -170,18 +170,12 @@ class SmartMoneyFollower:
 
 if __name__ == "__main__":
     try:
-        # Parse command-line arguments
+        # Parse command-line arguments and initiate ConfigManager
         args = parse_args()
-
-        # Get the final configuration
-        final_config = get_final_config(args)
+        manager = ConfigManager(args)
 
         # Follower instance
-        follower = SmartMoneyFollower(
-            export_path=final_config["path"],
-            export_format=final_config["export_format"],
-            verbose=final_config["verbose"]
-        )
+        follower = SmartMoneyFollower(manager)
 
         # Run
         follower.run_strategy()
