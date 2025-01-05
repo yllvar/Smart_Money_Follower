@@ -38,13 +38,13 @@ class ConfigManager:
                 self._args.export_format if self._args and self._args.export_format else self._config_data.get("export_format", "csv")
             ),
             "timeframe": validate_timeframe(
-                wallet_settings.get("timeframe", "7d"),
+                self._args.timeframe if self._args and self._args.timeframe else wallet_settings.get("timeframe", "7d")
             ),
             "wallet_tag": validate_wallet_tag(
                 wallet_settings.get("wallet_tag", "smart_degen")
             ),
             "win_rate": validate_win_rate(
-                wallet_settings.get("win_rate", 60)
+                self._args.winrate if self._args and self._args.winrate else wallet_settings.get("win_rate", 60)
             )
         }
 
@@ -108,6 +108,7 @@ def parse_args():
     parser.add_argument("--path", type=str, help="Path to export files")
     parser.add_argument("--verbose", type=bool, help="Verbose script logs")
     parser.add_argument("--export-format", type=str, choices=["csv", "txt"], help="Export format (csv or txt)")
+    parser.add_argument("--timeframe", type=str, choices=["1d", "7d", "30d"], help="Select timeframe of wallet scan")
     parser.add_argument("--winrate", type=int, help="Set winrate between 0 and 100")
     return parser.parse_args()
 
