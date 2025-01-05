@@ -52,6 +52,25 @@ Start Virtual Environment
    ```bash
    python smart_money_follower.py
    ```
+  ```bash
+usage: smart_money_follower.py [-h] [--config CONFIG] [--path PATH] [--verbose VERBOSE]
+                               [--export-format {csv,txt}] [--timeframe {1d,7d,30d}]
+                               [--winrate WINRATE]
+
+Smart Money Follower Configuration
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       Path to the config file
+  --path PATH           Path to export files
+  --verbose VERBOSE     Verbose script logs
+  --export-format {csv,txt}
+                        Export format (csv or txt)
+  --timeframe {1d,7d,30d}
+                        Select timeframe of wallet scan
+  --winrate WINRATE     Set winrate between 0 and 100
+```
+or you can adjust these settings in the config/config.yaml file
 
 #### Usage
 - Upon execution, the script fetches top wallets, analyzes their recent activities, evaluates tokens they've traded, and prints out a summarized analysis including realized profits, transaction volumes, and last activity timestamps.
