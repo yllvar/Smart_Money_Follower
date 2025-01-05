@@ -2,7 +2,7 @@ import argparse
 import yaml
 import os
 from yaml import YAMLError
-from config_validators import *
+from config.config_validators import *
 
 
 class ConfigManager:
