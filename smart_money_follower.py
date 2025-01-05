@@ -110,7 +110,7 @@ class SmartMoneyFollower:
 
                 # Filter wallets with a win rate higher than 0.6
                 winrate = wallet_activity.get('winrate', 0)
-                if winrate is not None and winrate > 0.6:
+                if winrate is not None and winrate >= self.config.win_rate:
                     wallet_info = {
                         'wallet_address': wallet_address,
                         'realized_profit': wallet_activity.get('realized_profit', 'N/A'),

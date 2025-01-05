@@ -1,7 +1,8 @@
 import argparse
 import yaml
-from yaml import YAMLError
 import os
+from yaml import YAMLError
+from config_validators import *
 
 
 class ConfigManager:
@@ -27,19 +28,25 @@ class ConfigManager:
         """Merge the config file and command-line arguments, with args taking precedence."""
         wallet_settings = self._config_data.get("wallet_settings", {})
         return {
-            "path": self._args.path if self._args and self._args.path else self._config_data.get("path", "data"),
-            "verbose": self._args.verbose if self._args and self._args.verbose else self._config_data.get("verbose", True),
-            "export_format": self._args.export_format if self._args and self._args.export_format else self._config_data.get("export_format", "csv"),
-            "timeframe": wallet_settings.get("timeframe", "7d"),
-            "wallet_tag": wallet_settings.get("wallet_tag", "smart_degen")
+            "path": validate_path(
+                self._args.path if self._args and self._args.path else self._config_data.get("path", "data")
+            ),
+            "verbose": validate_verbose(
+                self._args.verbose if self._args and self._args.verbose else self._config_data.get("verbose", True)
+            ),
+            "export_format": validate_export_format(
+                self._args.export_format if self._args and self._args.export_format else self._config_data.get("export_format", "csv")
+            ),
+            "timeframe": validate_timeframe(
+                wallet_settings.get("timeframe", "7d"),
+            ),
+            "wallet_tag": validate_wallet_tag(
+                wallet_settings.get("wallet_tag", "smart_degen")
+            ),
+            "win_rate": validate_win_rate(
+                wallet_settings.get("win_rate", 60)
+            )
         }
-
-    def validate(self):
-        """Validate the final configuration."""
-        if not self._final_config["path"]:
-            raise ValueError("Export path is required.")
-        if self._final_config["export_format"] not in ["csv", "txt"]:
-            raise ValueError(f"Unsupported export format: {self._final_config['export_format']}")
 
     @property
     def path(self):
@@ -47,9 +54,7 @@ class ConfigManager:
 
     @path.setter
     def path(self, new_path):
-        if not isinstance(new_path, str):
-            raise ValueError("Path must be a string.")
-        self._final_config["path"] = new_path
+        self._final_config["path"] = validate_path(new_path)
 
     @property
     def verbose(self):
@@ -57,9 +62,7 @@ class ConfigManager:
 
     @verbose.setter
     def verbose(self, verbose):
-        if not isinstance(verbose, bool):
-            raise ValueError("Verbose must be a boolean.")
-        self._final_config["verbose"] = verbose
+        self._final_config["verbose"] = validate_verbose(verbose)
 
     @property
     def export_format(self):
@@ -67,9 +70,7 @@ class ConfigManager:
 
     @export_format.setter
     def export_format(self, export_format):
-        if export_format not in ["csv", "txt"]:
-            raise ValueError("Export format must be 'csv' or 'txt'")
-        self._final_config["export_format"] = export_format
+        self._final_config["export_format"] = validate_export_format(export_format)
 
     @property
     def timeframe(self):
@@ -77,9 +78,7 @@ class ConfigManager:
 
     @timeframe.setter
     def timeframe(self, timeframe):
-        if timeframe not in ["1d", "7d", "30d"]:
-            raise ValueError("Timeframe must be 1d, 7d, 30d")
-        self._final_config["timeframe"] = timeframe
+        self._final_config["timeframe"] = validate_timeframe(timeframe)
 
     @property
     def wallet_tag(self):
@@ -87,10 +86,15 @@ class ConfigManager:
 
     @wallet_tag.setter
     def wallet_tag(self, wallet_tag):
-        tag_options = ["all", "pump_smart", "smart_degen", "reowned", "snipe_bot"]
-        if wallet_tag not in tag_options:
-            raise ValueError("Wallet Tag must be set to a valid tag")
-        self._final_config["wallet_tag"] = wallet_tag
+        self._final_config["wallet_tag"] = validate_wallet_tag(wallet_tag)
+
+    @property
+    def win_rate(self):
+        return self._final_config["win_rate"]
+
+    @win_rate.setter
+    def win_rate(self, win_rate):
+        self._final_config["win_rate"] = validate_win_rate(win_rate)
 
     @property
     def config(self):
@@ -104,6 +108,7 @@ def parse_args():
     parser.add_argument("--path", type=str, help="Path to export files")
     parser.add_argument("--verbose", type=bool, help="Verbose script logs")
     parser.add_argument("--export-format", type=str, choices=["csv", "txt"], help="Export format (csv or txt)")
+    parser.add_argument("--winrate", type=int, help="Set winrate between 0 and 100")
     return parser.parse_args()
 
 
@@ -115,13 +120,6 @@ if __name__ == "__main__":
     # Create ConfigManager instance
     config_manager = ConfigManager(args=args)
 
-    # Validate the configuration
-    try:
-        config_manager.validate()
-    except ValueError as e:
-        print(f"Configuration Error: {e}")
-        exit(1)
-
     # Access properties
     print("Final Configuration:")
     print(f"Path: {config_manager.path}")
@@ -129,3 +127,4 @@ if __name__ == "__main__":
     print(f"Export Format: {config_manager.export_format}")
     print(f"Timeframe: {config_manager.timeframe}")
     print(f"Wallet Tag: {config_manager.wallet_tag}")
+    print(f"Win Rate: {config_manager.win_rate}")
