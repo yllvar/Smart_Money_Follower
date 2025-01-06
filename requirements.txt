@@ -1,0 +1,5 @@
+tls_client
+httpx
+tabulate
+fake-useragent
+PyYAML

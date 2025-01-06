@@ -1,27 +1,32 @@
-import httpx
 import logging
 import time
 from datetime import datetime
-from tabulate import tabulate
-from gmgn import gmgn
 
+from tabulate import tabulate
+from gmgn.client import gmgn
+import csv
+import os
+from config.ConfigManager import ConfigManager, parse_args
 
 class SmartMoneyFollower:
-    def __init__(self):
+    def __init__(self, config: ConfigManager):
         self.gmgn = gmgn()
+        self.config = config
         self.logger = logging.getLogger("SmartMoneyFollower")
-        logging.basicConfig(level=logging.INFO)
+        logging.basicConfig(level=logging.INFO if self.config.verbose else logging.WARNING)
+        self.export_path = self.config.path
+        self.export_format = self.config.export_format
 
-    def get_top_wallets(self, timeframe="7d", walletTag="smart_degen"):
+    def get_top_wallets(self, timeframe="7d", wallet_tag="smart_degen"):
         """
         Fetch top performing wallets using the getTrendingWallets endpoint.
 
         :param timeframe: Time period for trending wallets (default "7d").
-        :param walletTag: Tag to filter wallets (default "smart_degen").
+        :param wallet_tag: Tag to filter wallets (default "smart_degen").
         :return: List of top performing wallets.
         """
         try:
-            response = self.gmgn.getTrendingWallets(timeframe, walletTag)
+            response = self.gmgn.getTrendingWallets(timeframe, wallet_tag)
             return response['rank']
         except Exception as e:
             self.logger.error(f"Error fetching top wallets: {e}")
@@ -86,7 +91,7 @@ class SmartMoneyFollower:
         """
         try:
             # Step 1: Get top wallets
-            top_wallets = self.get_top_wallets()
+            top_wallets = self.get_top_wallets(timeframe=self.config.timeframe, wallet_tag=self.config.wallet_tag)
             if not top_wallets:
                 self.logger.warning("No top wallets found.")
                 return
@@ -96,7 +101,7 @@ class SmartMoneyFollower:
             # Step 2: Analyze each wallet's activity
             for wallet in top_wallets:
                 wallet_address = wallet.get('wallet_address')
-                wallet_activity = self.analyze_wallet_activity(wallet_address)
+                wallet_activity = self.analyze_wallet_activity(wallet_address, period=self.config.timeframe)
                 
                 # Log wallet activity data vertically
                 self.logger.info(f"Wallet Activity for {wallet_address}:")
@@ -105,7 +110,7 @@ class SmartMoneyFollower:
 
                 # Filter wallets with a win rate higher than 0.6
                 winrate = wallet_activity.get('winrate', 0)
-                if winrate is not None and winrate > 0.6:
+                if winrate is not None and winrate >= self.config.win_rate:
                     wallet_info = {
                         'wallet_address': wallet_address,
                         'realized_profit': wallet_activity.get('realized_profit', 'N/A'),
@@ -125,12 +130,56 @@ class SmartMoneyFollower:
 
                     time.sleep(1)  # Rate limiting
 
-            # Step 4: Print the analysis output
+            # Step 4: Export to file
+            self.export_data(wallet_data)
+
+            # Step 5: Print the analysis output
             self.print_analysis_output(wallet_data)
+
         except Exception as e:
             self.logger.error(f"Error running strategy: {e}")
 
+    def export_data(self, data):
+        """
+        Export the wallet analysis data to the specified format.
+
+        :param data: List of wallet data dictionaries.
+        """
+        file_path = ""
+        if not data:
+            self.logger.warning("No data to export")
+            return
+
+        os.makedirs(self.export_path, exist_ok=True)
+
+        if self.export_format == "csv":
+            file_path = os.path.join(self.export_path, f"wallet_list_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
+            with open(file_path, mode="w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=data[0].keys())
+                writer.writeheader()
+                writer.writerows(data)
+        elif self.export_format == "txt":
+            file_path = os.path.join(self.export_path, f"wallet_list_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
+            with open(file_path, mode="w") as file:
+                for wallet in data:
+                    for key, value in wallet.items():
+                        file.write(f"{key}: {value}\n")
+                    file.write("\n")
+
+        print(f"Data exported to {file_path if file_path else self.export_path}")
 
 if __name__ == "__main__":
-    follower = SmartMoneyFollower()
-    follower.run_strategy()
+    try:
+        # Parse command-line arguments and initiate ConfigManager
+        args = parse_args()
+        manager = ConfigManager(args)
+
+        # Follower instance
+        follower = SmartMoneyFollower(manager)
+
+        # Run
+        follower.run_strategy()
+
+    except ValueError as e:
+        print(f"Configuration Error: {e}")
+        exit(1)

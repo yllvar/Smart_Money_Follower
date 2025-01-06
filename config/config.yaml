@@ -1,0 +1,26 @@
+#### Path to export wallet data
+path: "data"
+
+#### Export settings
+# csv or txt
+export_format: "csv"
+
+#### Verbose Settings
+verbose: False
+
+#### Wallet Search settings
+# timeframe options - 1d, 7d, 30d
+#
+# wallet tags options -
+#   all = all tags
+#   pump_smart = Pump.Fun Smart Money
+#   smart_degen = Smart Money (default)
+#   reowned = KOL/VC/Influencer
+#   snipe_bot = Snipe Bot
+#
+# winrate - set 0 to 100 (default is 60)
+
+wallet_settings:
+  timeframe: "7d"
+  wallet_tag: "smart_degen"
+  win_rate: 60

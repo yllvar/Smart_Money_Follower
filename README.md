@@ -1,5 +1,10 @@
 ### Smart Money Follower
 
+Smart Money Follower OG Developer: https://github.com/yllvar <br>
+OG Repo: https://github.com/yllvar/Smart_Money_Follower <br><br>
+GMGN.ai API Wrapper OG Developer: https://github.com/1f1n <br>
+OG Repo: https://github.com/1f1n/gmgnai-wrapper
+
 #### Overview
 The **Smart Money Follower** is a Python-based tool designed to analyze and follow top-performing wallets in the cryptocurrency space using the GMGN.ai API. It provides insights into wallet activities, evaluates traded tokens, and presents data in a structured format for analysis.
 
@@ -12,24 +17,60 @@ The **Smart Money Follower** is a Python-based tool designed to analyze and foll
 #### Requirements
 - Python 3.7+
 - Dependencies:
-  - `httpx`
+  - `fake-useragent`
   - `tabulate`
-  - `gmgn` (GMGN.ai API wrapper)
-  - `logging`
+  - `tls_client`
+  - `PyYAML`
 
-#### Setup
-1. **Installation**:
+## Setup
+#### 1. **Clone Git**
+   
+   ```
+   git clone https://github.com/LetsStartWithPurple/Smart_Money_Follower.git
+   ```
+#### 2. **Start Virtual Environment**
+
+Navigate to the project directory:
+  ```bash
+  cd Smart_Money_Follower
+  ```
+Create Venv
+  ```bash
+  python3 -m venv venv
+  ```
+Start Virtual Environment
+  ```bash
+  source venv/bin/activate
+  ```
+
+#### 4. **Install Requirements**:
    ```bash
-   pip install httpx tabulate gmgn
+   pip install -r requirements.txt
    ```
 
-2. **Configuration**:
-   - Ensure you have valid API credentials for GMGN.ai. Update credentials in the `gmgn` initialization within `SmartMoneyFollower`.
-
-3. **Execution**:
+#### 5. **Execution**:
    ```bash
    python smart_money_follower.py
    ```
+  ```bash
+usage: smart_money_follower.py [-h] [--config CONFIG] [--path PATH] [--verbose VERBOSE]
+                               [--export-format {csv,txt}] [--timeframe {1d,7d,30d}]
+                               [--winrate WINRATE]
+
+Smart Money Follower Configuration
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       Path to the config file
+  --path PATH           Path to export files
+  --verbose VERBOSE     Verbose script logs
+  --export-format {csv,txt}
+                        Export format (csv or txt)
+  --timeframe {1d,7d,30d}
+                        Select timeframe of wallet scan
+  --winrate WINRATE     Set winrate between 0 and 100
+```
+or you can adjust these settings in the config/config.yaml file
 
 #### Usage
 - Upon execution, the script fetches top wallets, analyzes their recent activities, evaluates tokens they've traded, and prints out a summarized analysis including realized profits, transaction volumes, and last activity timestamps.
