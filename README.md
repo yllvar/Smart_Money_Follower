@@ -1,7 +1,10 @@
 ### Smart Money Follower
+___
 
 #### Overview
 The **Smart Money Follower** is a Python-based tool designed to analyze and follow top-performing wallets in the cryptocurrency space using the GMGN.ai API. It provides insights into wallet activities, evaluates traded tokens, and presents data in a structured format for analysis.
+
+<img width="584" alt="Screenshot 2025-02-01 at 15 46 44" src="https://github.com/user-attachments/assets/728135f5-10d9-4ccf-9e2a-955638f9b73f" />
 
 #### Features
 - **Fetching Top Wallets**: Utilizes the GMGN.ai API to fetch top performing wallets based on specified criteria (`timeframe` and `walletTag`).
@@ -9,30 +12,6 @@ The **Smart Money Follower** is a Python-based tool designed to analyze and foll
 - **Evaluating Tokens**: Retrieves detailed information and USD prices of tokens traded by analyzed wallets.
 - **Output Presentation**: Presents analyzed data in a tabulated format, facilitating easy interpretation and decision-making.
 
-#### Requirements
-- Python 3.7+
-- Dependencies:
-  - `httpx`
-  - `tabulate`
-  - `gmgn` (GMGN.ai API wrapper)
-  - `logging`
-
-#### Setup
-1. **Installation**:
-   ```bash
-   pip install httpx tabulate gmgn
-   ```
-
-2. **Configuration**:
-   - Ensure you have valid API credentials for GMGN.ai. Update credentials in the `gmgn` initialization within `SmartMoneyFollower`.
-
-3. **Execution**:
-   ```bash
-   python smart_money_follower.py
-   ```
-
-#### Usage
-- Upon execution, the script fetches top wallets, analyzes their recent activities, evaluates tokens they've traded, and prints out a summarized analysis including realized profits, transaction volumes, and last activity timestamps.
 
 #### Example Output
 ```
@@ -53,6 +32,7 @@ Note: The 'Realized Profit' is represented in SOL.
 #### This code is based on https://github.com/1f1n repository: https://github.com/1f1n/gmgnai-wrapper
 
 Shout out to 1f1n
+___
 
 In order to use this, code, you need to:
 1. clone this repo
