@@ -1,0 +1,7 @@
+fake-useragent
+tls-client
+typing-extensions
+httpx
+tabulate
+python-dotenv 
+requests
