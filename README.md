@@ -2,7 +2,7 @@
 ___
 
 #### Overview
-The **Smart Money Follower** is a Python-based tool designed to analyze and follow top-performing wallets in the cryptocurrency space using the GMGN.ai API. It provides insights into wallet activities, evaluates traded tokens, and presents data in a structured format for analysis.
+The **Smart Money Follower** is a Python-based tool designed to analyze and follow top-performing wallets in the cryptocurrency space using the GMGN.ai wrapper. It provides insights into wallet activities, evaluates traded tokens, and presents data in a structured format for analysis.
 
 <img width="584" alt="Screenshot 2025-02-01 at 15 46 44" src="https://github.com/user-attachments/assets/728135f5-10d9-4ccf-9e2a-955638f9b73f" />
 
