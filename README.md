@@ -49,3 +49,14 @@ Note: The 'Realized Profit' is represented in SOL.
 #### Notes
 - Adjust rate limits (`time.sleep(1)`) according to API usage guidelines to prevent rate limiting issues.
 - Logging is implemented to track errors and activities for debugging purposes.
+
+#### This code is based on https://github.com/1f1n repository: https://github.com/1f1n/gmgnai-wrapper
+
+Shout out to 1f1n
+
+In order to use this, code, you need to:
+1. clone this repo
+2. install dependencies pip install -r requirements.txt
+3. run python wallet.py or python smartMoney.py
+
+# Feel free to use and modify
