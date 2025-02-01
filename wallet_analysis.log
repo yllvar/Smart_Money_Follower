@@ -1,0 +1,16 @@
+2025-02-01 14:14:44,261 - INFO - Fetching trending wallets for 1d timeframe with tag smart_degen
+2025-02-01 14:14:44,291 - WARNING - Error occurred during getting browser(s): random, but was suppressed with fallback.
+2025-02-01 14:14:44,599 - ERROR - Error fetching trending wallets: unsupported operand type(s) for *: 'NoneType' and 'int'
+2025-02-01 14:14:44,600 - WARNING - No wallet data to display
+2025-02-01 14:16:28,530 - INFO - Fetching trending wallets for 1d timeframe with tag smart_degen
+2025-02-01 14:16:28,561 - WARNING - Error occurred during getting browser(s): random, but was suppressed with fallback.
+2025-02-01 14:16:28,864 - INFO - Analysis exported to wallet_analysis.json
+2025-02-01 14:18:25,449 - INFO - Fetching trending wallets for 1d timeframe with tag smart_degen
+2025-02-01 14:18:25,810 - ERROR - Error fetching trending wallets: unsupported operand type(s) for *: 'NoneType' and 'int'
+2025-02-01 14:18:25,811 - WARNING - No wallet data to display
+2025-02-01 14:20:14,161 - INFO - Fetching trending wallets for 1d timeframe with tag smart_degen
+2025-02-01 14:20:14,544 - INFO - Analysis exported to wallet_analysis.json
+2025-02-01 14:31:18,983 - INFO - Fetching trending wallets for 1d timeframe with tag smart_degen
+2025-02-01 14:31:19,394 - INFO - Analysis exported to wallet_analysis.json
+2025-02-01 14:32:06,574 - INFO - Fetching trending wallets for 1d timeframe with tag smart_degen
+2025-02-01 14:32:06,926 - INFO - Analysis exported to wallet_analysis.json

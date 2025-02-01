@@ -1,0 +1,562 @@
+[
+  {
+    "wallet_address": "CWvdyvKHEu8Z6QqGraJT3sLPyp9bJfFhoXcxUYRKC8ou",
+    "realized_profit": 21663706.14,
+    "win_rate": 61.7,
+    "trades": {
+      "buy": 68,
+      "sell": 97
+    },
+    "last_active": "2025-02-01 06:36",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 24.1
+    }
+  },
+  {
+    "wallet_address": "BieeZkdnBAgNYknzo3RH2vku7FcPkFZMZmRJANh2TpW",
+    "realized_profit": 2667147.84,
+    "win_rate": 73.2,
+    "trades": {
+      "buy": 590,
+      "sell": 478
+    },
+    "last_active": "2025-02-01 12:31",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 39.9
+    }
+  },
+  {
+    "wallet_address": "Hnnw2hAgPgGiFKouRWvM3fSk3HnYgRv4Xq1PjUEBEuWM",
+    "realized_profit": 1858257.7,
+    "win_rate": 52.8,
+    "trades": {
+      "buy": 413,
+      "sell": 483
+    },
+    "last_active": "2025-02-01 06:28",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 17.6
+    }
+  },
+  {
+    "wallet_address": "72e6QM7gn9MH5u1YpgQbduexm4WAon1cnsSXPqKnLQec",
+    "realized_profit": 1673885.71,
+    "win_rate": 82.7,
+    "trades": {
+      "buy": 254,
+      "sell": 226
+    },
+    "last_active": "2025-02-01 10:55",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 42.7
+    }
+  },
+  {
+    "wallet_address": "DfMxre4cKmvogbLrPigxmibVTTQDuzjdXojWzjCXXhzj",
+    "realized_profit": 1416292.61,
+    "win_rate": 79.6,
+    "trades": {
+      "buy": 560,
+      "sell": 795
+    },
+    "last_active": "2025-02-01 14:10",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 10.3
+    }
+  },
+  {
+    "wallet_address": "3Vsx9RN9jvnKwdMkHxn6Z2cehtffgghk4Kd4MStHT1P6",
+    "realized_profit": 1328423.13,
+    "win_rate": 44.2,
+    "trades": {
+      "buy": 552,
+      "sell": 548
+    },
+    "last_active": "2025-02-01 14:06",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 3.4
+    }
+  },
+  {
+    "wallet_address": "HXkaN7TAQYXsybY1UHLrn18cVa9jgM3mbReasbAoSjTv",
+    "realized_profit": 1222165.26,
+    "win_rate": 48.1,
+    "trades": {
+      "buy": 380,
+      "sell": 322
+    },
+    "last_active": "2025-02-01 13:08",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 13.4
+    }
+  },
+  {
+    "wallet_address": "J865X6P4QDE7xp5JmkuPhyeRHZqddnVKR9pZiAJtZEAm",
+    "realized_profit": 995224.99,
+    "win_rate": 44.7,
+    "trades": {
+      "buy": 434,
+      "sell": 446
+    },
+    "last_active": "2025-02-01 14:16",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 11.0
+    }
+  },
+  {
+    "wallet_address": "HXkP2HJ3436u1urLnLsupqjtX1647bA2TtcHNWiDt49U",
+    "realized_profit": 872864.09,
+    "win_rate": 43.4,
+    "trades": {
+      "buy": 121,
+      "sell": 113
+    },
+    "last_active": "2025-01-31 17:23",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 1.0
+    }
+  },
+  {
+    "wallet_address": "3wi8waD5A64D7PLutUYJdhMcrYvDBTqeh3CRFgv1hFtY",
+    "realized_profit": 604239.63,
+    "win_rate": 55.1,
+    "trades": {
+      "buy": 104,
+      "sell": 89
+    },
+    "last_active": "2025-02-01 10:24",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 1.1
+    }
+  },
+  {
+    "wallet_address": "4DdrfiDHpmx55i4SPssxVzS9ZaKLb8qr45NKY9Er9nNh",
+    "realized_profit": 575293.54,
+    "win_rate": 91.9,
+    "trades": {
+      "buy": 3459,
+      "sell": 365
+    },
+    "last_active": "2025-02-01 14:07",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 45.0
+    }
+  },
+  {
+    "wallet_address": "2byqB8Pypvq6s8W126yJc9SxToTiWTfNFuDU3ZTq9CLT",
+    "realized_profit": 458503.75,
+    "win_rate": 65.6,
+    "trades": {
+      "buy": 198,
+      "sell": 232
+    },
+    "last_active": "2025-02-01 14:09",
+    "risk_metrics": {
+      "honeypot_ratio": 2.1,
+      "fast_tx_ratio": 8.3
+    }
+  },
+  {
+    "wallet_address": "BeTvN1ucBnCj4Ef688i51KHn2oq35CWDvD2J5aLFp17t",
+    "realized_profit": 458133.43,
+    "win_rate": 30.8,
+    "trades": {
+      "buy": 299,
+      "sell": 539
+    },
+    "last_active": "2025-02-01 14:08",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 5.1
+    }
+  },
+  {
+    "wallet_address": "BWAXnnyi5MDsLoQGJ2QprPEe9zSe9dcNwak6bFaq3wRB",
+    "realized_profit": 318841.17,
+    "win_rate": 65.2,
+    "trades": {
+      "buy": 127,
+      "sell": 142
+    },
+    "last_active": "2025-02-01 11:49",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 15.5
+    }
+  },
+  {
+    "wallet_address": "6JJdhkhk2fsxJcv5f2pEfrkMfHDe6bJSWT6JF2pUXGAK",
+    "realized_profit": 306886.46,
+    "win_rate": 61.3,
+    "trades": {
+      "buy": 604,
+      "sell": 420
+    },
+    "last_active": "2025-02-01 14:11",
+    "risk_metrics": {
+      "honeypot_ratio": 2.5,
+      "fast_tx_ratio": 17.5
+    }
+  },
+  {
+    "wallet_address": "Zj1xefkzK1bTpbmJLxcrSnL5bicyZMEct5tyihg2Gqw",
+    "realized_profit": 288868.5,
+    "win_rate": 100.0,
+    "trades": {
+      "buy": 23,
+      "sell": 16
+    },
+    "last_active": "2025-01-31 03:19",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 33.3
+    }
+  },
+  {
+    "wallet_address": "7A4x4kL8LZgKyNb8deE9xM5wH7jhLLFPJJatZqtfAjGr",
+    "realized_profit": 256350.53,
+    "win_rate": 0.0,
+    "trades": {
+      "buy": 116,
+      "sell": 97
+    },
+    "last_active": "2025-01-31 05:42",
+    "risk_metrics": {
+      "honeypot_ratio": 1.2,
+      "fast_tx_ratio": 3.7
+    }
+  },
+  {
+    "wallet_address": "4t9bWuZsXXKGMgmd96nFD4KWxyPNTsPm4q9jEMH4jD2i",
+    "realized_profit": 248350.09,
+    "win_rate": 43.9,
+    "trades": {
+      "buy": 642,
+      "sell": 313
+    },
+    "last_active": "2025-02-01 12:54",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 10.9
+    }
+  },
+  {
+    "wallet_address": "EDozia8CitSkQCnpXu3ekLJCoiLvPUWWLgiRTKiES2j2",
+    "realized_profit": 228428.23,
+    "win_rate": 43.4,
+    "trades": {
+      "buy": 89,
+      "sell": 106
+    },
+    "last_active": "2025-02-01 05:32",
+    "risk_metrics": {
+      "honeypot_ratio": 1.5,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "EHRAzDzsqX53AfysF68CwV3XjH46QH2iteZiByvxSbPM",
+    "realized_profit": 226870.69,
+    "win_rate": 80.0,
+    "trades": {
+      "buy": 919,
+      "sell": 284
+    },
+    "last_active": "2025-02-01 06:25",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 36.9
+    }
+  },
+  {
+    "wallet_address": "3zME3DRRKxWZTD5mCdSKDu7xSAMqvxfTFwJp5CpqmTn7",
+    "realized_profit": 204547.54,
+    "win_rate": 48.0,
+    "trades": {
+      "buy": 639,
+      "sell": 658
+    },
+    "last_active": "2025-02-01 08:21",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 59.5
+    }
+  },
+  {
+    "wallet_address": "5mtbmPwj2SMkxPP9c93s9oD9bmMdByTqepNarM9Y7u7e",
+    "realized_profit": 176019.56,
+    "win_rate": 51.6,
+    "trades": {
+      "buy": 122,
+      "sell": 171
+    },
+    "last_active": "2025-02-01 09:49",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 8.5
+    }
+  },
+  {
+    "wallet_address": "6Ghj4rQoEFpTuHbVEf1uVPJXVqLsujaV3rGt7Nigioaz",
+    "realized_profit": 130921.85,
+    "win_rate": 60.0,
+    "trades": {
+      "buy": 47,
+      "sell": 48
+    },
+    "last_active": "2025-02-01 06:04",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 4.0
+    }
+  },
+  {
+    "wallet_address": "4poRFZC5Wh96NUT8cx5UAZzNEr8M1U9rDsF1veNjdH2L",
+    "realized_profit": 109917.12,
+    "win_rate": 100.0,
+    "trades": {
+      "buy": 1,
+      "sell": 1
+    },
+    "last_active": "2025-01-31 03:34",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "2LLpgd85HuGc5QQC36Z2KcwGgJEfgs1p7FZQgnBKFZgw",
+    "realized_profit": 89338.6,
+    "win_rate": 0.0,
+    "trades": {
+      "buy": 5,
+      "sell": 2
+    },
+    "last_active": "2025-01-31 13:16",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "4Pp9PgEYoNuZUKeo6R9rLiC1DocYiba69LynQii7Ac4H",
+    "realized_profit": 83329.43,
+    "win_rate": 0.0,
+    "trades": {
+      "buy": 1,
+      "sell": 0
+    },
+    "last_active": "2025-01-26 21:35",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "EtC1my5hqLhMP4MLnoeeXHuAqyRbC9Qst9Cs34PpxEmg",
+    "realized_profit": 83119.85,
+    "win_rate": 40.0,
+    "trades": {
+      "buy": 55,
+      "sell": 73
+    },
+    "last_active": "2025-02-01 03:13",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "5Sb8odYw11j2F3bH1DTTVVxtyZq3eygZUkB61NVqp7f2",
+    "realized_profit": 82237.51,
+    "win_rate": 46.2,
+    "trades": {
+      "buy": 398,
+      "sell": 215
+    },
+    "last_active": "2025-02-01 12:39",
+    "risk_metrics": {
+      "honeypot_ratio": 1.9,
+      "fast_tx_ratio": 20.4
+    }
+  },
+  {
+    "wallet_address": "4632BMWY69AkVHxN1XLKVuLrednYiLccuMeoXnQBMA7Z",
+    "realized_profit": 78153.08,
+    "win_rate": 46.1,
+    "trades": {
+      "buy": 588,
+      "sell": 530
+    },
+    "last_active": "2025-02-01 09:55",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 7.1
+    }
+  },
+  {
+    "wallet_address": "DaR6ptosBFrfpzqTzEAyp8EVxr6Ky4ZwyT9g294sMedM",
+    "realized_profit": 76288.9,
+    "win_rate": 100.0,
+    "trades": {
+      "buy": 2,
+      "sell": 5
+    },
+    "last_active": "2025-02-01 04:49",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 50.0
+    }
+  },
+  {
+    "wallet_address": "HvHX9Q89eMJvEZXYFfG12AyTWmTqRPF1QkGVQfhj9Qym",
+    "realized_profit": 67122.9,
+    "win_rate": 36.7,
+    "trades": {
+      "buy": 465,
+      "sell": 635
+    },
+    "last_active": "2025-02-01 06:01",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 17.7
+    }
+  },
+  {
+    "wallet_address": "8oFNuyY7tA4Cw6dqamxzciAUYqPPCvckoT9srhvvUWkx",
+    "realized_profit": 53799.22,
+    "win_rate": 50.0,
+    "trades": {
+      "buy": 9,
+      "sell": 13
+    },
+    "last_active": "2025-01-31 16:09",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "DZGGYbZovLfWZuvLGDLZtKK82mno3BKpfyYw22ZEb8mp",
+    "realized_profit": 52353.19,
+    "win_rate": 60.0,
+    "trades": {
+      "buy": 43,
+      "sell": 47
+    },
+    "last_active": "2025-01-31 22:45",
+    "risk_metrics": {
+      "honeypot_ratio": 4.5,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "3SfMd2vmrKqQHbq898nvqtZNbogjDEcANcUGmRaeV4bN",
+    "realized_profit": 48677.66,
+    "win_rate": 0.0,
+    "trades": {
+      "buy": 0,
+      "sell": 2
+    },
+    "last_active": "2025-01-31 08:01",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "9SZnc6E3D2UtN8H7oj1QUsKJpuVUucjjGBcejbv7LWyp",
+    "realized_profit": 41610.69,
+    "win_rate": 30.8,
+    "trades": {
+      "buy": 18,
+      "sell": 24
+    },
+    "last_active": "2025-02-01 13:14",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "2FMPgFspCouJTcifuYwF1AdDKa2poH7Tqm6HSDSiGrGo",
+    "realized_profit": 23520.84,
+    "win_rate": 0.0,
+    "trades": {
+      "buy": 3,
+      "sell": 2
+    },
+    "last_active": "2025-01-30 05:57",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "FtB3GLX5WNGjjjpmqKKSxnU2YDrBqa9fvM4aNsDq1ddP",
+    "realized_profit": 21107.48,
+    "win_rate": 55.7,
+    "trades": {
+      "buy": 361,
+      "sell": 304
+    },
+    "last_active": "2025-02-01 11:54",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "CHxhvTpZXATdKFdugnwpisj3TbNfjXeNCVKNEeYrbQRB",
+    "realized_profit": 21013.65,
+    "win_rate": 85.7,
+    "trades": {
+      "buy": 11,
+      "sell": 13
+    },
+    "last_active": "2025-02-01 14:05",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 33.3
+    }
+  },
+  {
+    "wallet_address": "CqjcmBrytrJFCs7HsTc2XnJRyovQBffF4SJD6o1HbuTQ",
+    "realized_profit": 6749.27,
+    "win_rate": 100.0,
+    "trades": {
+      "buy": 1,
+      "sell": 1
+    },
+    "last_active": "2025-01-27 09:52",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 0
+    }
+  },
+  {
+    "wallet_address": "DJkPJC6N7Hc47HzoeCTm6GnA9uVa3nduyTXavweL4YB8",
+    "realized_profit": 1984.48,
+    "win_rate": 46.4,
+    "trades": {
+      "buy": 651,
+      "sell": 459
+    },
+    "last_active": "2025-02-01 07:30",
+    "risk_metrics": {
+      "honeypot_ratio": 0,
+      "fast_tx_ratio": 10.0
+    }
+  }
+]
